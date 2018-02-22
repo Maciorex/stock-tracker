@@ -13,12 +13,16 @@ gem 'turbolinks', '~> 5'
 
 #AUTH
 gem 'devise'
+gem 'jquery-rails'
 
 #assets
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'sass-rails', '~> 5.0'
 gem 'jbuilder', '~> 2.5'
+gem 'twitter-bootstrap-rails'
+gem 'devise-bootstrap-views'
+gem 'jquery-rails'
 
 group :production do
   gem 'pg', '~>0.11'
