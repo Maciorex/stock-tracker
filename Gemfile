@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 gem 'jquery-rails'
+gem 'stock_quote'
 
 group :production do
   gem 'pg', '~>0.11'
