@@ -8,12 +8,16 @@ class StocksController < ApplicationController
           format.js {render partial: 'users/result'}
         end
       else
-        flash[:danger] = "Wrong symbol entered"
-        redirect_to my_portfolio_path
+        respond_to do |format|
+          flash.now[:danger] = "Wrong symbol entered"
+          format.js {render partial: "users/result"}
+        end
       end
     else
-      flash[:danger] = "Empty search string"
-      redirect_to my_portfolio_path
+      respond_to do |format|
+        flash.now[:danger] = "Empty search string"
+        format.js {render partial: "users/result"}
+      end
     end
   end
 end
