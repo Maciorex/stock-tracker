@@ -21,3 +21,8 @@
 .no-padding {
   padding: 0 !important;
 }
+
+.stock-list {
+  margin-top: 50px;
+  position: relative;
+}
