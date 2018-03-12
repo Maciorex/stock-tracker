@@ -1,7 +1,7 @@
 class Stock < ApplicationRecord
   has_many :user_stocks
   has_many :users, through: :user_stocks
-  
+
   def self.new_from_lookup(ticker_symbol)
     begin
       looked_up_stock = StockQuote::Stock.quote(ticker_symbol)
@@ -10,6 +10,10 @@ class Stock < ApplicationRecord
     rescue Exception => e
       return nil
     end
+  end
+
+  def self.find_by_ticker(ticker_symbol)
+    where(ticker: ticker_symbol).first
   end
 
   def self.strip_commas(number)
