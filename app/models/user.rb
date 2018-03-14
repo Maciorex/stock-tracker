@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :user_stocks
   has_many :stocks, through: :user_stocks
   has_many :friendships
-  has_many :friends, through: :friendships  
+  has_many :friends, through: :friendships
 
   def stock_already_added?(ticker_symbol)
     stock = Stock.find_by_ticker(ticker_symbol)
@@ -23,5 +23,28 @@ class User < ApplicationRecord
   def full_name
     return "#{first_name} #{second_name}" if (first_name || second_name)
     "Anonymous"
+  end
+
+  def self.search(param)
+    param.strip.downcase!
+    to_return = (first_name_matches(param) + second_name_matches(param) + email_matches(param)).uniq
+    return nil unless to_return
+    to_return
+  end
+
+  def self.first_name_matches(param)
+    matches('first_name', param)
+  end
+
+  def self.second_name_matches(param)
+    matches('second_name', param)
+  end
+
+  def self.email_matches(param)
+    matches('email', param)
+  end
+
+  def self.matches(field, param)
+    User.where("#{field} like ?", "%#{param}%")
   end
 end

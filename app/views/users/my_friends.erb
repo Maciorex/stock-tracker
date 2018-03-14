@@ -1,4 +1,5 @@
 
+<%= render 'friends/lookup' %>
 <% if @friendships.size > 0 %>
 <table class="table table-hover">
   <thead>
@@ -7,7 +8,7 @@
         <h2> My friends </h2>
       </th>
     </tr>
-    <tr>Second
+    <tr>
       <th> Name </th>
       <th> email </th>
       <th> Actions </th>
@@ -19,7 +20,7 @@
         <td><%= friend.full_name %></td>
         <td><%= friend.email %></td>
         <td>
-          <%= link_to "View profile", user_path(friend), class: "btn btn-xs btn-info" %> 
+          <%= link_to "View profile", user_path(friend), class: "btn btn-xs btn-info" %>
           <%= link_to "Remove friend", friendship_path(friend), method: :delete, class: "btn btn-xs btn-danger" %>
        </td>
       </tr>

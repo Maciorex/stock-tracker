@@ -12,4 +12,9 @@ class UsersController < ApplicationController
   def show
 
   end
+
+  def search
+    @users = User.search(params[:search_params])
+    render json: @users
+  end
 end
