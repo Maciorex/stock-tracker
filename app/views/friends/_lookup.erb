@@ -1,0 +1,20 @@
+
+<div id="friend-lookup">
+    <div class="form-group row no-padding text-center col-md-12">
+      <div class="col-md-10">
+        <%= form_tag search_friend_path, remote: true, method: :get, id: "friend-lookup-form" do %>
+        <%= text_field_tag :search_params, params[:search_params], placeholder: "Enter friend name or email",
+                    atofocus: true, class: "form-control search-box input-lg"%>
+      </div>
+      <div class="cols-md-2">
+        <%= button_tag(type: :submit, class: "btn btn-lg btn-success") do %>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div id="results">
+  <%= render 'friends/result' %>
+</div>
